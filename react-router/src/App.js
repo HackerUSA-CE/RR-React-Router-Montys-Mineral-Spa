@@ -1,4 +1,8 @@
 
+import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
+import Nav from 'react-bootstrap/Nav' // Added
+import Container from 'react-bootstrap/Container' //Added
+
 import './App.css';
 
 import Home from './components/Home'
@@ -8,35 +12,47 @@ import Packages from './components/Packages'
 
 function App() {
 
-  const packages = ['Activate your Crystals', 'Monkey Meditation', 'Soak in the Hotsprings', 'Hypnotherapy', 'Mineral Bath']
+  const packages = ['Activate your Crystals',
+    'Monkey Meditation',
+    'Soak in the Hotsprings',
+    'Hypnotherapy',
+    'Mineral Bath']
 
   return (
     <div className="App">
-      <header>
-        <h1 className="title">Welcome to Monty's Mineral SPA</h1>
-
-        <div className="navBar">
-          <ul>
-            <li>
-              <a href={<Home />}>Home</a>
-            </li>
-            <li>
-              <a href={<About />}>About Us</a>
-            </li>
-            <li>
-              <a href={<Packages packages={packages}/>}>Our Packages</a>
-            </li>
-          </ul>
+      <Router>
+        <header>
+          <h1 className="title">Welcome to Monty's Mineral SPA</h1>
+          <Container>
+            <Nav defaultActiveKey="/" variant="tabs" fill>
+              <Nav.Item>
+                <Nav.Link href="/">
+                  <Link to="/">Home</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item >
+                <Nav.Link eventKey={"aboutPage"}>
+                  <Link to="/about">About Us</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item >
+                <Nav.Link eventKey={"packagesPage"}>
+                  <Link to="/packages">Our Packages</Link>
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Container>
+        </header>
+        <div className="display">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/packages" element={<Packages packages={packages} />} />
+          </Routes>
         </div>
-
-      </header>
+      </Router>
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
