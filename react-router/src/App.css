@@ -54,12 +54,12 @@ li:hover {
   margin-top: 25px;
   font-size: 1.3vw;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .aboutpage img {
   width: 50%;
-  height: 50%;
+  height: 25%;
   margin: 0 auto
 }
 
