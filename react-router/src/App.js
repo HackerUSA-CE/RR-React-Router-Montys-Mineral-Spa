@@ -1,14 +1,12 @@
 // npm install react-router-dom (npm library)
-
 // Utilizing React Router DOM Components
+// This Upgrade
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
-
 import './App.css';
 
 import Home from './components/Home'
 import About from './components/About'
 import Packages from './components/Packages'
-
 
 function App() {
 
